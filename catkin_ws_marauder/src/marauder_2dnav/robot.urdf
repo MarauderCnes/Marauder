@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<robot name="marauder">
+	<link name="chassis" />
+	<link name="differential" />
+	<link name="r_bogie_av" />
+	<link name="r_bogie_ar" />
+	<link name="l_bogie_av" />
+	<link name="l_bogie_ar" />
+	
+	<link name="steer_10" />
+	<link name="steer_11" />
+	<link name="steer_20" />
+	<link name="steer_21" />
+	
+	<link name="wheel_10" />
+	<link name="wheel_11" />
+	<link name="wheel_12" />
+	<link name="wheel_20" />
+	<link name="wheel_21" />
+	<link name="wheel_22" />
+	
+	<link name="base_link" />
+	
+	<joint name="joint00" type="fixed">
+		<parent link="base_link"/>
+		<child link="chassis"/>
+		<origin xyz="0 0 -0.015" rpy="0 0 0" />
+	</joint>
+	<joint name="joint01" type="fixed">
+		<parent link="chassis"/>
+		<child link="differential"/>
+		<origin xyz="0.42 0 0.16" rpy="0 0 0" />
+	</joint>
+
+	<joint name="joint10" type="continuous">
+		<parent link="differential"/>
+		<child link="l_bogie_av"/>
+		<origin xyz="0 0.21 0" rpy="-1.57 0 0" />
+	</joint>
+	<joint name="joint11" type="continuous">
+		<parent link="l_bogie_av"/>
+		<child link="l_bogie_ar"/>
+		<origin xyz="-0.2 0.046 0" rpy="0 0 0.7" />
+	</joint>
+	<joint name="joint12" type="revolute">
+		<parent link="l_bogie_av"/>
+		<child link="steer_10"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+		<origin xyz="0.363 0 0" rpy="1.57 0 0" />
+	</joint>
+	<joint name="joint13" type="revolute">
+		<parent link="l_bogie_ar"/>
+		<child link="steer_11"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+		<origin xyz="0 -0.21 0" rpy="1.57 0 -0.7" />
+	</joint>
+	<joint name="joint14" type="continuous">
+		<parent link="steer_10"/>
+		<child link="wheel_10"/>
+		<axis xyz="0 0 1"/>
+		<origin xyz="0 0 -0.162" rpy="-1.57 0 0" />
+	</joint>
+	<joint name="joint15" type="continuous">
+		<parent link="steer_11"/>
+		<child link="wheel_11"/>
+		<axis xyz="0 0 1"/>
+		<origin xyz="0 0 -0.162" rpy="-1.57 0 0" />
+	</joint>
+	<joint name="joint16" type="continuous">
+		<parent link="l_bogie_ar"/>
+		<child link="wheel_12"/>
+		<axis xyz="0 0 1"/>
+		<origin xyz="0 0.171 0" rpy="0 0 -0.7" />
+	</joint>
+
+	<joint name="joint20" type="continuous">
+		<parent link="differential"/>
+		<child link="r_bogie_av"/>
+		<origin xyz="0 -0.21 0" rpy="-1.57 0 0" />
+	</joint>
+	<joint name="joint21" type="continuous">
+		<parent link="r_bogie_av"/>
+		<child link="r_bogie_ar"/>
+		<origin xyz="-0.2 0.046 0" rpy="0 0 0.7" />
+	</joint>
+	<joint name="joint22" type="revolute">
+		<parent link="r_bogie_av"/>
+		<child link="steer_20"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+		<origin xyz="0.363 0 0" rpy="1.57 0 0" />
+	</joint>
+	<joint name="joint23" type="revolute">
+		<parent link="r_bogie_ar"/>
+		<child link="steer_21"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+		<origin xyz="0 -0.21 0" rpy="1.57 0 -0.7" />
+	</joint>
+	<joint name="joint24" type="continuous">
+		<parent link="steer_20"/>
+		<child link="wheel_20"/>
+		<axis xyz="0 0 1"/>
+		<origin xyz="0 0 -0.162" rpy="-1.57 0 0" />
+	</joint>
+	<joint name="joint25" type="continuous">
+		<parent link="steer_21"/>
+		<child link="wheel_21"/>
+		<axis xyz="0 0 1"/>
+		<origin xyz="0 0 -0.162" rpy="-1.57 0 0" />
+	</joint>
+	<joint name="joint26" type="continuous">
+		<parent link="r_bogie_ar"/>
+		<child link="wheel_22"/>
+		<axis xyz="0 0 1"/>
+		<origin xyz="0 0.171 0" rpy="0 0 -0.7" />
+	</joint>
+</robot>

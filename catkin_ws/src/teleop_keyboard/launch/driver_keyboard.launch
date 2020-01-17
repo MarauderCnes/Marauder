@@ -1,0 +1,4 @@
+<launch>
+    <node name="driver" pkg="motor_control" type="driver" output="screen"/>
+    <node name="teleop_keyboard" pkg="teleop_keyboard" type="teleop_keyboard.py" output="screen"/>
+</launch>

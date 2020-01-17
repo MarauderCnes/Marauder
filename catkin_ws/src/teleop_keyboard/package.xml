@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>teleop_keyboard</name>
+  <version>0.6.2</version>
+  <description>Generic keyboard teleop for twist robots.</description>
+
+  <maintainer email="baptiste-da-silva@hotmail.fr">Baptiste RIBEIRO DA SILVA</maintainer>
+
+  <license>ODO</license>
+
+  <url type="website">http://wiki.ros.org/teleop_twist_keyboard</url>
+
+  <author>Graylin Trevor Jay</author>
+  <author>Baptiste RIBEIRO DA SILVA</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>motor_control/</build_depend>
+  <build_export_depend>motor_control/</build_export_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>motor_control/</exec_depend>
+</package>
